@@ -7,7 +7,8 @@ namespace WorkflowCore.Interface
 {
     public interface IWorkflowController
     {
-        Task<string> StartWorkflow(string workflowId, object data = null, string reference=null);
+        void AddWorkflowData(string workflowId, string key, object data);
+        Task<string> StartWorkflow(string workflowId, object data = null, string reference = null);
         Task<string> StartWorkflow(string workflowId, int? version, object data = null, string reference=null);
         Task<string> StartWorkflow<TData>(string workflowId, TData data = null, string reference=null) where TData : class, new();
         Task<string> StartWorkflow<TData>(string workflowId, int? version, TData data = null, string reference=null) where TData : class, new();
